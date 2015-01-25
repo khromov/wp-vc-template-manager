@@ -36,7 +36,7 @@ add_action('after_setup_theme', function()
 
         //Load additional templates from plugins or themes
         foreach(apply_filters("{$VCTM_PREFIX}_template_locations", array()) as $additional_location)
-            $templates = array_merge($templates, vctm_load_templates( trailingslashit($additional_location) . '*.php', 'theme'));
+            $templates = array_merge($templates, vctm_load_templates( trailingslashit($additional_location) . '*.php', 'plugin'));
 
         return $templates;
     }, 12);
@@ -62,8 +62,9 @@ function vctm_load_templates($folder = 'default_templates', $hook_prefix = 'vctm
 
         $data = array();
         $data['name']       = __( apply_filters("{$VCTM_PREFIX}_{$hook_prefix}_name_{$filename_clean}", vctm_prettify_name($filename_clean)), apply_filters("{$VCTM_PREFIX}_textdomain", 'vc_template_manager') );
+                             //TODO: This filter does not work due to VC bug as of v4.4.1
         $data['weight']     = apply_filters("{$VCTM_PREFIX}_{$hook_prefix}_weight_{$filename_clean}", apply_filters("{$VCTM_PREFIX}_default_weight", 0));
-        $data['custom_class'] = apply_filters("{$VCTM_PREFIX}_{$hook_prefix}_class_{$filename_clean}", $filename_clean);
+        $data['custom_class'] = apply_filters("{$VCTM_PREFIX}_{$hook_prefix}_class_{$filename_clean}", "vctm_{$hook_prefix}_{$filename_clean}");
         $data['content']    = apply_filters("{$VCTM_PREFIX}_{$hook_prefix}_content_{$filename_clean}", file_get_contents($filename));
 
         $templates[] = $data;
@@ -89,5 +90,5 @@ function vctm_prettify_name($name)
     foreach(explode(' ', $name) as $word)
         $ret .= ucfirst($word) . ' ';
 
-    return apply_filters("{$VCTM_PREFIX}_prettify_filename_{$name}", rtrim($ret));
+    return rtrim($ret);
 }

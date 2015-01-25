@@ -64,13 +64,11 @@ add_filter('vctm_template_locations', function($locations)
 });
 ```
 
-### Hooks
-
-The plugin exposes hooks 
-
 ### Forking the base plugin
 
-You can fork this plugin by simply changing the folder name and removing the row starting with "GitHub Theme URI" from the plugin header.
+You can fork this plugin by simply changing the folder name and removing the row starting with "GitHub Theme URI" from the plugin header. 
+
+You can then add your templates in the vc_templates/ folder of the plugin.
 
 The hook prefix can be modified by changing the $VCTM_PREFIX variable in the main plugin file.
 
@@ -82,6 +80,64 @@ add_filter('vctm_textdomain', function($textdomain)
     return 'my_custom_textdomain';
 });
 ```
+
+### Removing default templates
+
+Visual Composer ships with a lot of default templates. If you wish to remove these and only keep the ones you add with this plugin, add the following code in your themes functions.php file, or a plugin:
+
+```php
+add_action('vctm_disable_builtin_templates', '__return_true');
+```
+
+### Known issues
+
+Due to issues in Visual Composer (as of 4.4.1), it is not possible to reorder the plugins. They will always be ordered in alphabetical order. We hope
+to solve this with future versions of VC.
+
+### Hooks
+
+This plugin exposes hooks to control almost every aspect of the plugin.
+
+##### vctm_disable_builtin_templates
+
+Lets you disable VC:s own built-in templates
+
+*Parameters: $current_value - Boolean*  
+*Return value: Boolean*
+
+##### vctm_template_locations
+
+Lets you register custom template locations for use in plugins and themes.
+
+*Parameters: $locations - Array of current paths which will be looked in for templates*  
+*Return value: Array of current locations (Append your location to existing array)*
+
+##### vctm_<TEMPLATE_SOURCE>_name_<TEMPLATE_NAME>
+
+Lets you change the name that is displayed in VC for a given template
+
+*Dynamic value: <TEMPLATE_SOURCE> - The source of the template. "theme" if it came from the theme, "vctm" if it came from the VCTM plugin and "plugin" if it came from a third party plugin using the vctm_template_locations hook. (Don't register multiple paths where template names can collide - you won't be able to filter them.*  
+*Dynamic value: <TEMPLATE_NAME> - The name of the template, without extension. Example: my_template*  
+*Parameters: $current_name - The auto-generated name*   
+*Return value: String - new name*
+
+##### vctm_<TEMPLATE_SOURCE>_class_<TEMPLATE_NAME>
+
+Lets you change the HTML class which wraps the plugin in the VC modal. Lets you set the template icon through CSS.
+
+*Dynamic value: <TEMPLATE_SOURCE> - The source of the template. "theme" if it came from the theme, "vctm" if it came from the VCTM plugin and "plugin" if it came from a third party plugin using the vctm_template_locations hook. (Don't register multiple paths where template names can collide - you won't be able to filter them.*  
+*Dynamic value: <TEMPLATE_NAME> - The name of the template, without extension. Example: my_template*  
+*Parameters: $current_class_name - The auto-generated class name*   
+*Return value: String - new name*
+
+##### vctm_<TEMPLATE_SOURCE>_content_<TEMPLATE_NAME>
+
+Lets you dynamically alter the contents of a template, for example to perform pre-processing.
+
+*Dynamic value: <TEMPLATE_SOURCE> - The source of the template. "theme" if it came from the theme, "vctm" if it came from the VCTM plugin and "plugin" if it came from a third party plugin using the vctm_template_locations hook. (Don't register multiple paths where template names can collide - you won't be able to filter them.*  
+*Dynamic value: <TEMPLATE_NAME> - The name of the template, without extension. Example: my_template*  
+*Parameters: $current_content - The template content*   
+*Return value: String - new template content*
 
 ### Miscellaneous
 
@@ -97,3 +153,4 @@ This plugin supports GitHub updater.
 #### Composer
 
 This plugin supports Composer through the [composer/installers](https://packagist.org/packages/composer/installers) package.
+
