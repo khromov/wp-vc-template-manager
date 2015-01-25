@@ -34,7 +34,7 @@ Workflow:
 
 ### Using in a plugin
 
-If you want to use this in a plugin, use the vctm_template_locations filter to add a custom path in which templates will be searched.
+If you want to use this in a plugin, use the vctm\_template\_locations filter to add a custom path in which templates will be searched.
 
 If your plugin directory is:
 
@@ -42,7 +42,7 @@ If your plugin directory is:
 /my-plugin/
 ```
 
-Create the folder vc_templates/
+Create the folder vc\_templates/
 
 ```
 /my-plugin/vc_templates
@@ -65,11 +65,11 @@ add_filter('vctm_template_locations', function($locations)
 
 You can fork this plugin by simply changing the folder name and removing the row starting with "GitHub Theme URI" from the plugin header. 
 
-You can then add your templates in the vc_templates/ folder of the plugin.
+You can then add your templates in the vc\_templates/ folder of the plugin.
 
-The hook prefix can be modified by changing the $VCTM_PREFIX variable in the main plugin file.
+The hook prefix can be modified by changing the $VCTM\_PREFIX variable in the main plugin file.
 
-The translation textdomain can be changed with the vctm_textdomain filter:
+The translation textdomain can be changed with the vctm\_textdomain filter:
 
 ```php
 add_filter('vctm_textdomain', function($textdomain)
@@ -95,14 +95,14 @@ to solve this with future versions of VC.
 
 This plugin exposes hooks to control almost anything.
 
-##### vctm_disable_builtin_templates
+##### vctm\_disable\_builtin\_templates
 
 Lets you disable VC:s own built-in templates
 
-*Parameters: $current_value - Boolean*  
+*Parameters: $current\_value - Boolean*  
 *Return value: Boolean*
 
-##### vctm_template_locations
+##### vctm\_template\_locations
 
 Lets you register custom template locations for use in plugins and themes.
 
@@ -113,27 +113,27 @@ Lets you register custom template locations for use in plugins and themes.
 
 Lets you change the name that is displayed in VC for a given template
 
-*Dynamic value: <TEMPLATE_SOURCE> - The source of the template. "theme" if it came from the theme, "vctm" if it came from the VCTM plugin and "plugin" if it came from a third party plugin using the vctm_template_locations hook. (Don't register multiple paths where template names can collide - you won't be able to filter them.)*  
-*Dynamic value: <TEMPLATE_NAME> - The name of the template, without extension. Example: my_template*  
-*Parameters: $current_name - The auto-generated name*   
+*Dynamic value: <TEMPLATE\_SOURCE> - The source of the template. "theme" if it came from the theme, "vctm" if it came from the VCTM plugin and "plugin" if it came from a third party plugin using the vctm\_template\_locations hook. (Don't register multiple paths where template names can collide - you won't be able to filter them.)*  
+*Dynamic value: <TEMPLATE\_NAME> - The name of the template, without extension. Example: my\_template*  
+*Parameters: $current\_name - The auto-generated name*   
 *Return value: String - new name*
 
 ##### vctm\_\<TEMPLATE\_SOURCE\>\_class\_\<TEMPLATE_NAME\>
 
 Lets you change the HTML class which wraps the plugin in the VC modal. Lets you set the template icon through CSS.
 
-*Dynamic value: <TEMPLATE_SOURCE> - The source of the template. "theme" if it came from the theme, "vctm" if it came from the VCTM plugin and "plugin" if it came from a third party plugin using the vctm_template_locations hook. (Don't register multiple paths where template names can collide - you won't be able to filter them.)*  
-*Dynamic value: <TEMPLATE_NAME> - The name of the template, without extension. Example: my_template*  
-*Parameters: $current_class_name - The auto-generated class name*   
+*Dynamic value: <TEMPLATE\_SOURCE> - The source of the template. "theme" if it came from the theme, "vctm" if it came from the VCTM plugin and "plugin" if it came from a third party plugin using the vctm\_template\_locations hook. (Don't register multiple paths where template names can collide - you won't be able to filter them.)*  
+*Dynamic value: <TEMPLATE\_NAME> - The name of the template, without extension. Example: my\_template*  
+*Parameters: $current\_class\_name - The auto-generated class name*   
 *Return value: String - new name*
 
 ##### vctm\_\<TEMPLATE\_SOURCE\>\_content\_\<TEMPLATE_NAME\>
 
 Lets you dynamically alter the contents of a template, for example to perform pre-processing.
 
-*Dynamic value: <TEMPLATE_SOURCE> - The source of the template. "theme" if it came from the theme, "vctm" if it came from the VCTM plugin and "plugin" if it came from a third party plugin using the vctm_template_locations hook. (Don't register multiple paths where template names can collide - you won't be able to filter them.)*  
-*Dynamic value: <TEMPLATE_NAME> - The name of the template, without extension. Example: my_template*  
-*Parameters: $current_content - The template content*   
+*Dynamic value: <TEMPLATE\_SOURCE> - The source of the template. "theme" if it came from the theme, "vctm" if it came from the VCTM plugin and "plugin" if it came from a third party plugin using the vctm\_template\_locations hook. (Don't register multiple paths where template names can collide - you won't be able to filter them.)*  
+*Dynamic value: <TEMPLATE\_NAME> - The name of the template, without extension. Example: my\_template*  
+*Parameters: $current\_content - The template content*   
 *Return value: String - new template content*
 
 ### Miscellaneous
@@ -141,7 +141,7 @@ Lets you dynamically alter the contents of a template, for example to perform pr
 #### Template name generation
 
 We generate a "nice" template name based on the file name. Dashes and underscores are replaced with spaces and each word is capitalized. You can override it with 
-the vctm_<template_type>_name_<template_name> filter.
+the vctm\_\<template\_type\>\_name\_\<template_name\> filter.
 
 #### GitHub updater
 
