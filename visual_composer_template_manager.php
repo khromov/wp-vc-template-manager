@@ -36,7 +36,7 @@ add_action('after_setup_theme', function()
 
         //Load additional templates from plugins or themes
         foreach(apply_filters("{$VCTM_PREFIX}_template_locations", array()) as $additional_location)
-            $templates = array_merge($templates, vctm_load_templates( trailingslashit(get_stylesheet_directory_uri()) . 'vc_templates/*.php', 'theme'));
+            $templates = array_merge($templates, vctm_load_templates( trailingslashit($additional_location) . '*.php', 'theme'));
 
         return $templates;
     }, 12);

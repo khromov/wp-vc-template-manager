@@ -3,5 +3,8 @@
   "description": "Easily add version-controlled templates to your Visual Composer project",
   "keywords": ["wordpress", "visual composer", "vcs"],
   "license": "GPL2",
-  "type": "wordpress-plugin"
+  "type": "wordpress-plugin",
+  "require": {
+    "composer/installers": "v1.0.6"
+  }
 }
