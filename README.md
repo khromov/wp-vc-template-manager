@@ -1,22 +1,17 @@
 ## Visual Composer Template Manager
-Template manager for Visual Composer
-
-### Description
 
 This plugin provides a framework for creating themes and plugins that utilize the built-in templates in Visual Composer (as of version 4.4)
 
 It works by loading templates from files in your theme (and optionally plugin) folders, making it possible to version control templates in a simple way.
 
-[[image]]
-
 ### Building templates
 
 Building a template is easy. Start out by creating a layout in Visual Composer. (For example, by creating a new page with the layout you want.)
 
-When you are done, click the "Classic mode" button to return to the TinyMCE WYSISYG, and then click on the Text tab. Now you can copy the content 
-of your layout into a template!
+When you are done, click the "Classic mode" button to return to the TinyMCE WYSISYG, and then click on the Text tab. Now you can copy the content of your layout into a template!
 
-[[image]]
+Explanation:  
+![Visual explanation of text above](https://dl.dropboxusercontent.com/u/2758854/vc-whatdo.png)
 
 ### Using in a theme
 
@@ -32,8 +27,9 @@ Then, create a text file, for example:
 /your-theme/vc_templates/my-template.php
 ```
 
-Paste the template you got from the "Building templates" section above, and you will see a new template called "My Template" after you click
-on Templates > Default Templates in Visual Composer. You're done!
+Paste the template you got from the "Building templates" section above, and you will see a new template called "My Template" after you click on Templates > Default Templates in Visual Composer. You're done!
+
+![Visual explanation of text above](https://dl.dropboxusercontent.com/u/2758854/vc-insert.png)
 
 ### Using in a plugin
 
@@ -91,12 +87,12 @@ add_action('vctm_disable_builtin_templates', '__return_true');
 
 ### Known issues
 
-Due to issues in Visual Composer (as of 4.4.1), it is not possible to reorder the plugins. They will always be ordered in alphabetical order. We hope
+Due to a bug in Visual Composer (as of 4.4.1), it is not possible to reorder the templates. They will always be ordered in alphabetical order. We hope
 to solve this with future versions of VC.
 
 ### Hooks
 
-This plugin exposes hooks to control almost every aspect of the plugin.
+This plugin exposes hooks to control almost anything.
 
 ##### vctm_disable_builtin_templates
 
@@ -112,7 +108,7 @@ Lets you register custom template locations for use in plugins and themes.
 *Parameters: $locations - Array of current paths which will be looked in for templates*  
 *Return value: Array of current locations (Append your location to existing array)*
 
-##### vctm_<TEMPLATE_SOURCE>_name_<TEMPLATE_NAME>
+##### vctm\_\<TEMPLATE\_SOURCE\>\_name\_\<TEMPLATE_NAME\>
 
 Lets you change the name that is displayed in VC for a given template
 
@@ -121,7 +117,7 @@ Lets you change the name that is displayed in VC for a given template
 *Parameters: $current_name - The auto-generated name*   
 *Return value: String - new name*
 
-##### vctm_<TEMPLATE_SOURCE>_class_<TEMPLATE_NAME>
+##### vctm\_\<TEMPLATE\_SOURCE\>\_class\_\<TEMPLATE_NAME\>
 
 Lets you change the HTML class which wraps the plugin in the VC modal. Lets you set the template icon through CSS.
 
@@ -130,7 +126,7 @@ Lets you change the HTML class which wraps the plugin in the VC modal. Lets you 
 *Parameters: $current_class_name - The auto-generated class name*   
 *Return value: String - new name*
 
-##### vctm_<TEMPLATE_SOURCE>_content_<TEMPLATE_NAME>
+##### vctm\_\<TEMPLATE\_SOURCE\>\_content\_\<TEMPLATE_NAME\>
 
 Lets you dynamically alter the contents of a template, for example to perform pre-processing.
 
@@ -143,7 +139,7 @@ Lets you dynamically alter the contents of a template, for example to perform pr
 
 #### Template name generation
 
-We generate template names based on their file name. Dashes and underscores are removed and each word is capitalized. You can override it with 
+We generate a "nice" template name based on the file name. Dashes and underscores are replaced with spaces and each word is capitalized. You can override it with 
 the vctm_<template_type>_name_<template_name> filter.
 
 #### GitHub updater
