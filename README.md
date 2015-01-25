@@ -10,8 +10,8 @@ Building a template is easy. Start out by creating a layout in Visual Composer. 
 
 When you are done, click the "Classic mode" button to return to the TinyMCE WYSISYG, and then click on the Text tab. Now you can copy the content of your layout into a template!
 
-Explanation:  
-![Visual explanation of text above](https://dl.dropboxusercontent.com/u/2758854/vc-whatdo.png)
+Workflow:  
+![Visual workflow of text above](https://dl.dropboxusercontent.com/u/2758854/vc-whatdo.png)
 
 ### Using in a theme
 
@@ -29,6 +29,7 @@ Then, create a text file, for example:
 
 Paste the template you got from the "Building templates" section above, and you will see a new template called "My Template" after you click on Templates > Default Templates in Visual Composer. You're done!
 
+Workflow:  
 ![Visual explanation of text above](https://dl.dropboxusercontent.com/u/2758854/vc-insert.png)
 
 ### Using in a plugin
@@ -112,7 +113,7 @@ Lets you register custom template locations for use in plugins and themes.
 
 Lets you change the name that is displayed in VC for a given template
 
-*Dynamic value: <TEMPLATE_SOURCE> - The source of the template. "theme" if it came from the theme, "vctm" if it came from the VCTM plugin and "plugin" if it came from a third party plugin using the vctm_template_locations hook. (Don't register multiple paths where template names can collide - you won't be able to filter them.*  
+*Dynamic value: <TEMPLATE_SOURCE> - The source of the template. "theme" if it came from the theme, "vctm" if it came from the VCTM plugin and "plugin" if it came from a third party plugin using the vctm_template_locations hook. (Don't register multiple paths where template names can collide - you won't be able to filter them.)*  
 *Dynamic value: <TEMPLATE_NAME> - The name of the template, without extension. Example: my_template*  
 *Parameters: $current_name - The auto-generated name*   
 *Return value: String - new name*
@@ -121,7 +122,7 @@ Lets you change the name that is displayed in VC for a given template
 
 Lets you change the HTML class which wraps the plugin in the VC modal. Lets you set the template icon through CSS.
 
-*Dynamic value: <TEMPLATE_SOURCE> - The source of the template. "theme" if it came from the theme, "vctm" if it came from the VCTM plugin and "plugin" if it came from a third party plugin using the vctm_template_locations hook. (Don't register multiple paths where template names can collide - you won't be able to filter them.*  
+*Dynamic value: <TEMPLATE_SOURCE> - The source of the template. "theme" if it came from the theme, "vctm" if it came from the VCTM plugin and "plugin" if it came from a third party plugin using the vctm_template_locations hook. (Don't register multiple paths where template names can collide - you won't be able to filter them.)*  
 *Dynamic value: <TEMPLATE_NAME> - The name of the template, without extension. Example: my_template*  
 *Parameters: $current_class_name - The auto-generated class name*   
 *Return value: String - new name*
@@ -130,7 +131,7 @@ Lets you change the HTML class which wraps the plugin in the VC modal. Lets you 
 
 Lets you dynamically alter the contents of a template, for example to perform pre-processing.
 
-*Dynamic value: <TEMPLATE_SOURCE> - The source of the template. "theme" if it came from the theme, "vctm" if it came from the VCTM plugin and "plugin" if it came from a third party plugin using the vctm_template_locations hook. (Don't register multiple paths where template names can collide - you won't be able to filter them.*  
+*Dynamic value: <TEMPLATE_SOURCE> - The source of the template. "theme" if it came from the theme, "vctm" if it came from the VCTM plugin and "plugin" if it came from a third party plugin using the vctm_template_locations hook. (Don't register multiple paths where template names can collide - you won't be able to filter them.)*  
 *Dynamic value: <TEMPLATE_NAME> - The name of the template, without extension. Example: my_template*  
 *Parameters: $current_content - The template content*   
 *Return value: String - new template content*
