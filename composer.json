@@ -1,0 +1,7 @@
+{
+  "name": "khromov/wp-vc-template-manager",
+  "description": "Easily add version-controlled templates to your Visual Composer project",
+  "keywords": ["wordpress", "visual composer", "vcs"],
+  "license": "GPL2",
+  "type": "wordpress-plugin"
+}
