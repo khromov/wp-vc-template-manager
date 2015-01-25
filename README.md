@@ -141,7 +141,7 @@ Lets you dynamically alter the contents of a template, for example to perform pr
 #### Template name generation
 
 We generate a "nice" template name based on the file name. Dashes and underscores are replaced with spaces and each word is capitalized. You can override it with 
-the vctm\_\<template\_type\>\_name\_\<template_name\> filter.
+the vctm\_\<TEMPLATE\_SOURCE\>\_name\_\<TEMPLATE\_NAME\> filter.
 
 #### GitHub updater
 
