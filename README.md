@@ -1,6 +1,6 @@
 ## Visual Composer Template Manager
 
-This plugin provides a framework for creating themes and plugins that utilize the built-in templates in Visual Composer (as of version 4.4)
+This plugin provides a framework for creating themes and plugins that utilize the built-in template function in Visual Composer (as of version 4.4)
 
 It works by loading templates from files in your theme (and optionally plugin) folders, making it possible to version control templates in a simple way.
 
@@ -21,11 +21,13 @@ To bundle templates with your theme, create the folder:
 /your-theme/vc_templates
 ```
 
-Then, create a text file, for example:
+Then, create a file, for example:
 
 ```
 /your-theme/vc_templates/my-template.php
 ```
+
+The only requirement is that the file has a .php extension.
 
 Paste the template you got from the "Building templates" section above, and you will see a new template called "My Template" after you click on Templates > Default Templates in Visual Composer. You're done!
 
