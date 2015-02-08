@@ -4,7 +4,7 @@ Plugin Name: Visual Composer Template Manager
 Description: Easily version control your Visual Composer Templates
 Author: khromov
 Version: 1.0
-GitHub Theme URI: khromov/wp-vc-template-manager
+GitHub Plugin URI: khromov/wp-vc-template-manager
 Author URI: http://snippets.khromov.se
 */
 
